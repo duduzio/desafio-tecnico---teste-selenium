@@ -1,0 +1,248 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.w3c.dom.html.HTMLSelectElement;
+
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
+
+public class driver {
+
+    public static void main(String[] args) {
+
+        //Se for Windows usar a linha abaixo
+        //System.setProperty("webdriver.chrome.driver", "Local/do/webdriver.exe");
+        WebDriver driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+        //Carregar o site específico
+        driver.get("http://sampleapp.tricentis.com/101/app.php");
+
+        //Primeira Aba
+
+        //Preencher campo Make
+        WebElement comboboxElement = driver.findElement(By.id("make"));
+        Select combobox = new Select(comboboxElement);
+        combobox.selectByVisibleText("Audi");
+
+        //Preencher campo Model
+        WebElement comboboxElement2 = driver.findElement(By.id("model"));
+        Select combobox2 = new Select(comboboxElement2);
+        combobox2.selectByVisibleText("Motorcycle");
+
+        //Preencher campo Cylinder Capacity
+        WebElement cilindrada = driver.findElement(By.id("cylindercapacity"));
+        cilindrada.sendKeys("250");
+
+        //Preencher campo Engine Performance
+        WebElement potencia = driver.findElement(By.id("engineperformance"));
+        potencia.sendKeys("20");
+
+        //Prencher campo Date of Manufacture
+        WebElement dataDeFabricacao = driver.findElement(By.id("dateofmanufacture"));
+        dataDeFabricacao.sendKeys("01/20/2011");
+
+        //Selecionar numero de lugares no campo Number of Seats
+        WebElement comboboxElement3 = driver.findElement(By.id("numberofseats"));
+        Select combobox3 = new Select(comboboxElement3);
+        combobox3.selectByVisibleText("2");
+
+        //Selecionar numero de lugares no campo Number of Seats Motorcycle
+        WebElement comboboxElement4 = driver.findElement(By.id("numberofseatsmotorcycle"));
+        Select combobox4 = new Select(comboboxElement4);
+        combobox4.selectByVisibleText("2");
+
+        //Preencher campo Fuel
+        WebElement comboboxElement5 = driver.findElement(By.id("fuel"));
+        Select combobox5 = new Select(comboboxElement5);
+        combobox5.selectByVisibleText("Gas");
+
+        //Preencher campo Payload
+        WebElement peso = driver.findElement(By.id("payload"));
+        peso.sendKeys("120");
+
+        //Preencher campo Total Weight
+        WebElement pesoTotal = driver.findElement(By.id("totalweight"));
+        pesoTotal.sendKeys("320");
+
+        //Preencher campo List Price
+        WebElement tabelaFipe = driver.findElement(By.id("listprice"));
+        tabelaFipe.sendKeys("8000");
+
+        //Preencher campo License Plate
+        WebElement placa = driver.findElement(By.id("licenseplatenumber"));
+        placa.sendKeys("RIO2021");
+
+        //Preencher campo Annual Mileage
+        WebElement kilometragem = driver.findElement(By.id("annualmileage"));
+        kilometragem.sendKeys("2000");
+
+        //Selecionar opção Right Hand Driver
+        WebElement element = driver.findElement(By.id("righthanddriveyes"));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).click().build().perform();
+
+        //Clicar no Botão Next
+        WebElement proximaPagina = driver.findElement(By.id("nextenterinsurantdata"));
+        proximaPagina.click();
+
+        //Segunda Aba
+
+        //Preencher campo First Name
+        WebElement primeiroNome = driver.findElement(By.id("firstname"));
+        primeiroNome.sendKeys("Eduardo");
+
+        //Preencher campo Last Name
+        WebElement sobreNome = driver.findElement(By.id("lastname"));
+        sobreNome.sendKeys("Barbosa");
+
+        //Preencher campo Birthdate
+        WebElement dataDeNascimento = driver.findElement(By.id("birthdate"));
+        dataDeNascimento.sendKeys("05/26/1988");
+
+        //Selecionar Genero no campo Gender
+        WebElement element2 = driver.findElement(By.id("gendermale"));
+        Actions actions2 = new Actions(driver);
+        actions2.moveToElement(element2).click().build().perform();
+
+        //Preencher campo Address
+        WebElement endereco = driver.findElement(By.id("streetaddress"));
+        endereco.sendKeys("Rua Oito de Dezembro 264 apt905");
+
+        //Selecionar País no campo Country
+        WebElement comboboxElement6 = driver.findElement(By.id("country"));
+        Select combobox6 = new Select(comboboxElement6);
+        combobox6.selectByVisibleText("Brazil");
+
+        //Preencher campo Zipcode
+        WebElement cep = driver.findElement(By.id("zipcode"));
+        cep.sendKeys("20550200");
+
+        //Preencher campo City
+        WebElement cidade = driver.findElement(By.id("city"));
+        cidade.sendKeys("Rio de Janeiro");
+
+        //Selecionar ocupação no campo Occupation
+        WebElement comboboxElement7 = driver.findElement(By.id("occupation"));
+        Select combobox7 = new Select(comboboxElement7);
+        combobox7.selectByVisibleText("Employee");
+
+        //Selecionar Hobbie no campo Hobbies
+        WebElement element3 = driver.findElement(By.id("speeding"));
+        Actions actions3 = new Actions(driver);
+        actions3.moveToElement(element3).click().build().perform();
+
+        //Preencher campo website
+        WebElement webSite = driver.findElement(By.id("website"));
+        webSite.sendKeys("www.instagram.com/edu.amaralb/");
+
+        //Clicar no botão Next
+        WebElement proximaPagina2 = driver.findElement(By.id("nextenterproductdata"));
+        proximaPagina2.click();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+        //Terceira Aba
+
+        //Preencher campo Start Date
+        WebElement dataInicioSeguro = driver.findElement(By.id("startdate"));
+        dataInicioSeguro.sendKeys("11/08/2021");
+
+        //Selecionar opção no campo Insurance sum
+        WebElement comboboxElement8 = driver.findElement(By.id("insurancesum"));
+        Select combobox8 = new Select(comboboxElement8);
+        combobox8.selectByVisibleText("3.000.000,00");
+
+        //Selecionar opção no campo Merit Rating
+        WebElement comboboxElement9 = driver.findElement(By.id("meritrating"));
+        Select combobox9 = new Select(comboboxElement9);
+        combobox9.selectByVisibleText("Bonus 1");
+
+        //Selecionar opção no campo Damage Insurance
+        WebElement comboboxElement10 = driver.findElement(By.id("damageinsurance"));
+        Select combobox10 = new Select(comboboxElement10);
+        combobox10.selectByVisibleText("No Coverage");
+
+        //Selecionar opção no campo Insurance
+        WebElement element4 = driver.findElement(By.id("LegalDefenseInsurance"));
+        Actions actions4 = new Actions(driver);
+        actions4.moveToElement(element4).click().build().perform();
+
+        //Selecionar opção no campo Courtesy Car
+        WebElement comboboxElement11 = driver.findElement(By.id("courtesycar"));
+        Select combobox11 = new Select(comboboxElement11);
+        combobox11.selectByVisibleText("No");
+
+        //Clicar no botão Next
+        WebElement proximaPagina3 = driver.findElement(By.id("nextselectpriceoption"));
+        proximaPagina3.click();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+        //Quarta Aba
+
+        //Selecionar opção Silver
+        WebElement element5 = driver.findElement(By.id("selectsilver"));
+        Actions actions5 = new Actions(driver);
+        actions5.moveToElement(element5).click().build().perform();
+
+        //Clicar no Botão Next
+        WebElement proximaPagina4 = driver.findElement(By.id("nextsendquote"));
+        proximaPagina4.click();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+        //Quinta Aba
+
+        //Preencher campo Email
+        WebElement email = driver.findElement(By.id("email"));
+        email.sendKeys("eduardoamaralb@gmail.com");
+
+        //Preencher campo Phone
+        WebElement telefone = driver.findElement(By.id("phone"));
+        telefone.sendKeys("5521981876655");
+
+        //Preencher campo Username
+        WebElement nomeDeUsuario = driver.findElement(By.id("username"));
+        nomeDeUsuario.sendKeys("duduzio");
+
+        //Preencher campo Password
+        WebElement senha = driver.findElement(By.id("password"));
+        senha.sendKeys("Teste123");
+
+        //Preencher campo Confirm Password
+        WebElement confirmaSenha = driver.findElement(By.id("confirmpassword"));
+        confirmaSenha.sendKeys("Teste123");
+
+        //Preencher campo Comments
+        WebElement comentario = driver.findElement(By.id("Comments"));
+        comentario.sendKeys("Hope everything is ok");
+
+        //Clicar no botão Send Email
+        WebElement enviarEmail = driver.findElement(By.id("sendemail"));
+        enviarEmail.click();
+
+        //Verificar Mensagem de sucesso
+        WebElement resultadoPesquisa = driver.findElement(By.cssSelector(".sweet-alert.showSweetAlert.visible"));
+        String resultado = resultadoPesquisa.getText();
+        resultado = resultado.toLowerCase();
+
+        if(resultado.contains("sending") && resultado.contains("e-mail") && resultado.contains("success")) {
+            System.out.println("Teste Executado com Sucesso");
+        } else {
+            System.out.println("Erro no Teste");
+        }
+
+        //Encerrar WebDriver
+        driver.close();
+    }
+
+    
+}
